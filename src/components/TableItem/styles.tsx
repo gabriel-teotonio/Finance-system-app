@@ -2,5 +2,17 @@ import styled from "styled-components";
 
 export const TableLine = styled.tr``;
 export const TableColumn = styled.td`
-    padding: 10px;
+    padding: 10px 0;
 `;
+
+export const Category = styled.div<{color: string}>`
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #4f5570;
+    background-color: ${props => props.color};
+`
+;   
+export const Value = styled.div<{color:string}>`
+    color: ${props => props.color}
+`
