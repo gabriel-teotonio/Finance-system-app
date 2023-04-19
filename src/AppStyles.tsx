@@ -15,5 +15,4 @@ export const Body = styled.main`
     max-width: 980px;
     margin: auto;
     margin-bottom: 2rem;
-    background-color: blueviolet;
 `

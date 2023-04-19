@@ -18,7 +18,7 @@ export const TableItem = ({item}: IProps) => {
             </C.TableColumn>
             <C.TableColumn>{item.title}</C.TableColumn>
             <C.TableColumn>
-                <C.Value color={categories[item.category].expense ? 'red': '#2764FF'}>
+                <C.Value color={categories[item.category].expense ? 'red': '#00EE5F'}>
                     R$ {item.value.toFixed(2)}
                 </C.Value>
             </C.TableColumn>

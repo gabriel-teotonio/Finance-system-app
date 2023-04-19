@@ -9,10 +9,11 @@ export const Category = styled.div<{color: string}>`
     display: inline-block;
     padding: 5px 10px;
     border-radius: 5px;
-    color: #4f5570;
+    color: #fff5f5;
     background-color: ${props => props.color};
 `
 ;   
 export const Value = styled.div<{color:string}>`
-    color: ${props => props.color}
+    color: ${props => props.color};
+    font-weight: 600;
 `
