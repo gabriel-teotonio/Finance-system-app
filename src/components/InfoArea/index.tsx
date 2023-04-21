@@ -11,13 +11,27 @@ type IProps = {
 
 export const InfoArea = ({income, expense, currentMonth, onMonthChange}: IProps) => {
 
+    const handleNextMonth = () => {
+        let [year, month] = currentMonth.split('-');
+        const currentDate = new Date(parseInt(year),parseInt(month) - 1, 1);
+        currentDate.setMonth(currentDate.getMonth() + 1);
+
+        onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
+    }
+    const handlePrevMonth = () => {
+        let [year, month] = currentMonth.split('-');
+        const currentDate = new Date(parseInt(year),parseInt(month) - 1, 1);
+        currentDate.setMonth(currentDate.getMonth() - 1);
+
+        onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
+    }
 
   return (
    <C.Container>
         <C.MonthArea>
-            <C.MonthArrow>⬅️</C.MonthArrow>
+            <C.MonthArrow onClick={handlePrevMonth}>⬅️</C.MonthArrow>
             <C.MonthTitle>{formatCurrentMonth(currentMonth)}</C.MonthTitle>
-            <C.MonthArrow>➡️</C.MonthArrow>
+            <C.MonthArrow onClick={handleNextMonth}>➡️</C.MonthArrow>
         </C.MonthArea>     
         <C.ResumeArea>
             <ResumeItem title='Receita' value={income}/>
