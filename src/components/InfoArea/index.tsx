@@ -1,3 +1,4 @@
+import { formatCurrentMonth } from '../../utils/dateFilter';
 import { ResumeItem } from '../ResumeItem';
 import * as C from './styles';
 
@@ -15,13 +16,17 @@ export const InfoArea = ({income, expense, currentMonth, onMonthChange}: IProps)
    <C.Container>
         <C.MonthArea>
             <C.MonthArrow>⬅️</C.MonthArrow>
-            <C.MonthTitle>{currentMonth}</C.MonthTitle>
+            <C.MonthTitle>{formatCurrentMonth(currentMonth)}</C.MonthTitle>
             <C.MonthArrow>➡️</C.MonthArrow>
         </C.MonthArea>     
         <C.ResumeArea>
             <ResumeItem title='Receita' value={income}/>
             <ResumeItem title='Despesas' value={expense}/>
-            <ResumeItem title='Balanço' value={income - expense}/>
+            <ResumeItem 
+            color={income-expense < 0 ? "red": "#00EE5F"} 
+            title='Balanço' 
+            value={income - expense}
+            />
         </C.ResumeArea> 
    </C.Container> 
   )

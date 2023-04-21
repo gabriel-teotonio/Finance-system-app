@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const MonthArea = styled.div`
     display: flex;
     align-items: center;
-    gap: .6rem;
+    gap: 2rem;
 `;
 export const MonthArrow = styled.button`
     border: 0;
@@ -24,6 +24,7 @@ export const MonthArrow = styled.button`
     font-size: 1.5rem;
 `;
 export const MonthTitle = styled.h4`
+    font-weight: 400;
 `;
 export const ResumeArea = styled.div`
     display: flex;
