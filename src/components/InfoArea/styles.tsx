@@ -2,7 +2,15 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
+    width: 100%;
+    background-color: #fff;
+    padding: 1.2rem;
+    box-shadow: 0 0 5px #ccc;
+    border-radius: 10px;
+    margin-top: 1.2rem;
 
+    display: flex;
+    justify-content: space-between;
 `;
 export const MonthArea = styled.div`
     display: flex;
@@ -19,4 +27,6 @@ export const MonthTitle = styled.h4`
 `;
 export const ResumeArea = styled.div`
     display: flex;
+    justify-content: space-between;
+    width: 50%;
 `;
