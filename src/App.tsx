@@ -41,6 +41,13 @@ function App() {
     setCurrentMonth(newMonth);
   }
 
+  const handleAddItem = (item: Item) => {
+    let newList = [...list];
+    newList.push(item)
+    setList(newList);
+    console.log(newList)
+  }
+
   return (
     <C.Container>
       <C.Header>
@@ -53,7 +60,7 @@ function App() {
         currentMonth={currentMonth}
         onMonthChange={handleMonthChange}
         />
-        <InputArea />
+        <InputArea onAdd={handleAddItem}/>
         <TableArea list={filteredList} />
       </C.Body>
     </C.Container>

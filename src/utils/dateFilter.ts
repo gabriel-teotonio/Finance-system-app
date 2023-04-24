@@ -39,3 +39,8 @@ export const formatCurrentMonth = (currentMonth: string):string => {
 }
 
 const addZeroToDate = (num:number) => num < 10 ? `0${num}` : num;
+
+export const newDateAjusted = (inputDate: string) => {
+    let [year, month, day] = inputDate.split('-');
+    return new Date(parseInt(year), parseInt(month), parseInt(day));
+}
