@@ -18,24 +18,40 @@ export const InputArea = ({onAdd}: IProps) => {
 
     const handleAddEvent = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
+        let errors:string[] = [];
+
         if(inputTitle === ""){
-            console.log("preencha o campo")
+            errors.push("O campo título está vazio");
         }
-        else if(inputCategory === ""){
-            console.log("preencha o campo")
+        if(isNaN(new Date(inputDate).getTime())){
+            errors.push("Data inválida");
         }
-        else if(inputDate === ""){
-            console.log("preencha o campo")
+        if(!categoryKeys.includes(inputCategory)){
+            errors.push("Categoria inválida");
         }
-        else if(inputValue === 0){
-            console.log("preencha o campo")
+        if(inputValue <= 0){
+            errors.push("Valor inválido");
         }
+
+        if(errors.length > 0){
+            alert(errors.join("\n"))
+            return
+        }
+
         onAdd({
             date: newDateAjusted(inputDate),
             category: inputCategory,
             title: inputTitle,
             value: inputValue,
         })
+        clearInputs()
+    }
+
+    const clearInputs = () => {
+        setInputTitle("");
+        setInputCategory("");
+        setInputDate("");
+        setInputValue(0)
     }
 
     return(
