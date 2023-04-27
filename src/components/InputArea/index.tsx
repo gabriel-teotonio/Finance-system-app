@@ -3,16 +3,16 @@ import { categories } from '../../data/categories';
 import * as C from './styles';
 import { Item } from '../../types/Item';
 import { newDateAjusted } from '../../utils/dateFilter';
+import { useAppContext } from '../../Contexts/AppContext';
 
-type IProps = {
-    onAdd: (item:Item) => void;
-}
 
-export const InputArea = ({onAdd}: IProps) => {
+export const InputArea = () => {
     const [inputTitle, setInputTitle] = useState("");
     const [inputDate, setInputDate] = useState("");
     const [inputCategory, setInputCategory] = useState("");  
     const [inputValue, setInputValue] = useState(0);
+
+    const { onAddItem } = useAppContext();
 
     const categoryKeys: string[] = Object.keys(categories)
 
@@ -38,7 +38,7 @@ export const InputArea = ({onAdd}: IProps) => {
             return
         }
 
-        onAdd({
+        onAddItem({
             date: newDateAjusted(inputDate),
             category: inputCategory,
             title: inputTitle,

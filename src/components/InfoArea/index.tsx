@@ -1,29 +1,24 @@
+import { useAppContext } from '../../Contexts/AppContext';
 import { formatCurrentMonth } from '../../utils/dateFilter';
 import { ResumeItem } from '../ResumeItem';
 import * as C from './styles';
 
-type IProps = {
-    income: number;
-    expense: number;
-    currentMonth: string;
-    onMonthChange: (newMonth:string) => void;
-}
-
-export const InfoArea = ({income, expense, currentMonth, onMonthChange}: IProps) => {
+export const InfoArea = () => {
+    const { income,expense,currentMonth, handleMonthChange } = useAppContext();
 
     const handleNextMonth = () => {
         let [year, month] = currentMonth.split('-');
         const currentDate = new Date(parseInt(year),parseInt(month) - 1, 1);
         currentDate.setMonth(currentDate.getMonth() + 1);
 
-        onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
+        handleMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
     }
     const handlePrevMonth = () => {
         let [year, month] = currentMonth.split('-');
         const currentDate = new Date(parseInt(year),parseInt(month) - 1, 1);
         currentDate.setMonth(currentDate.getMonth() - 1);
 
-        onMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
+        handleMonthChange(`${currentDate.getFullYear()}-${currentDate.getMonth() + 1}`)
     }
 
   return (

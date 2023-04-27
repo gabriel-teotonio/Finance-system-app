@@ -1,12 +1,11 @@
+import { useAppContext } from "../../Contexts/AppContext";
 import { Item } from "../../types/Item"
 import { TableItem } from "../TableItem";
 import * as C from './styles';
 
-type IProps = {
-    list: Item[];
-}
+export const TableArea = () => {
+  const { filteredList } = useAppContext();
 
-export const TableArea = ({list}: IProps) => {
   return (
     <C.Table> 
         <thead>
@@ -19,7 +18,7 @@ export const TableArea = ({list}: IProps) => {
         </thead>
         <tbody>
           {
-            list.map((item,index) => (
+            filteredList.map((item,index) => (
               <TableItem
                 key={index}
                 item={item} 
