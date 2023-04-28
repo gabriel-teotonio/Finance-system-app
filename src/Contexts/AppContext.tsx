@@ -3,24 +3,27 @@ import { Item } from "../types/Item";
 import { filterListByMonth, getCurrentMonth } from "../utils/dateFilter";
 import { Items } from "../data/items";
 import { categories } from "../data/categories";
+import { ITheme, theme } from "../StylesThemeGlobal";
 
-type IAppcontext = {
+type IAppContext = {
    income: number;
    expense: number;
    currentMonth: string;
    filteredList: Item[];
    handleMonthChange: (newMonth: string) => void;
    onAddItem: (item: Item) => void;
+   theme: ITheme;
 }
 
 
-export const AppContext = createContext<IAppcontext>({
+export const AppContext = createContext<IAppContext>({
     income: 0,
     expense: 0,
     currentMonth: "",
     filteredList: [],
     handleMonthChange: (newMonth: string) => {},
     onAddItem: (item:Item) => {},
+    theme: theme,
 });
 
 type IChildren = {
@@ -73,7 +76,8 @@ export const AppContextProvider = ({children}: IChildren) => {
             filteredList, 
             handleMonthChange, 
             currentMonth,
-            onAddItem
+            onAddItem,
+            theme
         }}>
             {children}
         </AppContext.Provider>

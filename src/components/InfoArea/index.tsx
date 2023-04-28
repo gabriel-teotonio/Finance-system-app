@@ -4,7 +4,7 @@ import { ResumeItem } from '../ResumeItem';
 import * as C from './styles';
 
 export const InfoArea = () => {
-    const { income,expense,currentMonth, handleMonthChange } = useAppContext();
+    const { income,expense,currentMonth, handleMonthChange, theme } = useAppContext();
 
     const handleNextMonth = () => {
         let [year, month] = currentMonth.split('-');
@@ -22,7 +22,7 @@ export const InfoArea = () => {
     }
 
   return (
-   <C.Container>
+   <C.Container theme={theme}>
         <C.MonthArea>
             <C.MonthArrow onClick={handlePrevMonth}>⬅️</C.MonthArrow>
             <C.MonthTitle>{formatCurrentMonth(currentMonth)}</C.MonthTitle>

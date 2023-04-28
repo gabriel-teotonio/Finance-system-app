@@ -11,10 +11,11 @@ import { InputArea } from './components/InputArea';
 import { useAppContext } from './Contexts/AppContext';
 
 function App() {
+  const { theme } = useAppContext();
 
   return (
-    <C.Container>
-      <C.Header>
+    <C.Container theme={theme}>
+      <C.Header theme={theme}>
         <C.HeaderTitle>Controle financeiro</C.HeaderTitle>
       </C.Header> 
       <C.Body>

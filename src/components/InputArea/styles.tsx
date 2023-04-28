@@ -14,7 +14,7 @@ const InputStyle = `
 
 export const Container = styled.div`
     width: 100%;
-    background-color: #fff;
+    background-color: ${props => props.theme.colors.bg_overview};
     padding: 1.2rem;
     box-shadow: 0 0 5px #ccc;
     border-radius: 10px;

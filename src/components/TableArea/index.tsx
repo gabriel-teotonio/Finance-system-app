@@ -4,10 +4,10 @@ import { TableItem } from "../TableItem";
 import * as C from './styles';
 
 export const TableArea = () => {
-  const { filteredList } = useAppContext();
+  const { filteredList, theme } = useAppContext();
 
   return (
-    <C.Table> 
+    <C.Table theme={theme}> 
         <thead>
             <tr>
                 <C.TableHeaderColumn width={100}>Data</C.TableHeaderColumn>

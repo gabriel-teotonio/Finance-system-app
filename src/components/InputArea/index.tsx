@@ -12,7 +12,7 @@ export const InputArea = () => {
     const [inputCategory, setInputCategory] = useState("");  
     const [inputValue, setInputValue] = useState(0);
 
-    const { onAddItem } = useAppContext();
+    const { onAddItem, theme } = useAppContext();
 
     const categoryKeys: string[] = Object.keys(categories)
 
@@ -55,7 +55,7 @@ export const InputArea = () => {
     }
 
     return(
-        <C.Container>
+        <C.Container theme={theme}>
             <C.Form>
                 <C.Label>
                     <C.InputTitle>Título</C.InputTitle>
